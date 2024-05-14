@@ -13,5 +13,6 @@
 - Hình vẽ Chuồng và Cỏ lấy ở https://www.freepik.com
 
 *Demo Gameplay:
+
 https://github.com/DrMutHo/Guardian-dog/assets/142037194/d4fe665a-7c7f-4b4c-9d7f-beceb1960c39
 
