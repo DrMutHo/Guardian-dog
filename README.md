@@ -7,6 +7,7 @@
 - Sử dụng phím điều hướng để di chuyển Chó và đẩy Cừu vào chuồng
 - Có thể sử dụng folder levels để vẽ tự vẽ map
   ( Lưu ý map chỉ có duy nhất 1 chú chó, số cừu phải >= số chuồng > 0 )
+- Bấm phím "R" để restart lại level đó nếu đi lỗi
 
 *Tài liệu tham khảo:
 - Hình vẽ Chó và Cừu tham khảo trên https://thechamps.co/sheep/
