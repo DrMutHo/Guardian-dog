@@ -34,6 +34,9 @@ public:
 	void loadYard(const std::string line, const unsigned int r);
 	void update(bool& gameLoop);
 	bool loadNextLvl();
+	void restartCurLvl();
+	void prevLevel();
+	void nextLevel(bool& gameLoop);
 
 	//Xử lý di chuyển
 	void moveDog(const Direction direction);

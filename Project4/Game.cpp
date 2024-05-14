@@ -88,12 +88,70 @@ void Game::handleUserInput(bool& gameLoop, bool& reverseDir)
 			case SDLK_DOWN:
 				moveDog(DOWN);
 				break;
+			case SDLK_r:
+				restartCurLvl();
+				break;
+			case SDLK_9:
+				prevLevel();
+				break;
+			case SDLK_0:
+				nextLevel(gameLoop);
+				break;
 			default:
 				break;
 			}
 		}
 	}
 }
+
+void Game::restartCurLvl() {
+	resetLvlData();
+	std::string strLevel = "./Project4/Levels/level";
+	strLevel += std::to_string(curLvl);
+	strLevel += ".txt";
+	loadCurLvl(strLevel);
+}
+
+void Game::prevLevel() {
+	std::string msg = "Change to level ";
+	msg += std::to_string(--curLvl);
+	initialize.HanldeLevelMsg(msg);
+	SDL_Delay(2000);
+	resetLvlData();
+	std::string strLevel = "./Project4/Levels/level";
+	strLevel += std::to_string(curLvl);
+	strLevel += ".txt";
+
+	if (!loadCurLvl(strLevel))
+	{
+		initialize.HanldeLevelMsg("Invalid Level");
+		SDL_Delay(2000);
+		curLvl = 1;
+		restartCurLvl();
+	}
+}
+
+void Game::nextLevel(bool& gameLoop) {
+
+	std::string strLevel = "Change to level ";
+	strLevel += std::to_string(curLvl+1);
+	initialize.HanldeLevelMsg(strLevel);
+	SDL_Delay(2000);
+
+	if (curLvl+1 > lvlTotal)
+	{
+		initialize.HanldeLevelMsg("IT'S END :((!");
+		SDL_Delay(2000);
+		initialize.HanldeLevelMsg("YOU WON!");
+		SDL_Delay(2000);
+		gameLoop = false;
+	}
+	else
+	{
+		loadNextLvl();
+	}
+}
+
 
 //Update qua màn mới
 void Game::update(bool& gameLoop)
