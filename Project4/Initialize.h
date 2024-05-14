@@ -23,8 +23,8 @@ public:
 
 private:
 
-	int winWidth = 800;
-	int winHeight = 500;
+	int winWidth = 1200;
+	int winHeight = 600;
 	
 
 	const std::string dogImg = "./Project4/Resources/dog.png";

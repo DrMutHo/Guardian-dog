@@ -310,6 +310,10 @@ bool Game::moveManage(const unsigned int r, const unsigned int c,
 bool Game::moveObject(const unsigned int r, const unsigned int c, int dX, int dY, const States st)
 {	
 	
+	//Không thể đẩy 2 con cừu cùng lúc
+	if ((yard[r + dX][c + dY].st == FENCES) ||
+		(st == SHEEPS && yard[r + dX][c + dY].st == SHEEPS))
+		return false;
 	if (yard[r + dX][c + dY].st == SHEEPS)
 		//Chó gặp cừu
 	{
@@ -319,11 +323,6 @@ bool Game::moveObject(const unsigned int r, const unsigned int c, int dX, int dY
 		else
 			return false;
 	}
-	//Không thể đẩy 2 con cừu cùng lúc
-	if ((yard[r + dX][c + dY].st == FENCES) ||
-		(st == SHEEPS && yard[r + dX][c + dY].st == SHEEPS))
-		return false;
-
 	
 	if (st == DOGS)
 	{
